@@ -1,1 +1,1 @@
-# COV-projekt
+# Znaki drogowe - wykrycie i klasyfikacja

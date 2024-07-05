@@ -1,4 +1,6 @@
-# Projetk na zaliczenie przedmiotu Computer vision
+### UWAGA !!! Z powodów technicznych cały kod i pliki są w ZIPie, modele są zbyt duże dla Githuba... zostanie to potem naprawione bez wrzucania modeli na Gita, program ma możliwość stworzenia ich.
+
+# Projekt na zaliczenie przedmiotu Computer vision
 
 
 ### Tytuł: Znaki drogowe - wykrycie i klasyfikacja
@@ -35,7 +37,7 @@ Python 3.11
 
 ## Dodatkowe pliki:
 * signTnames.csv
-* pliki modelów oraz moduły
+* pliki modelów(no juź nie bo Github nie pozwala...) oraz moduły
 * cascade.xml
 * foldery zdjec archive8 (dataset z Kaggle) oraz test-images
 

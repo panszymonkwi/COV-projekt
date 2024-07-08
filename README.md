@@ -1,5 +1,3 @@
-### UWAGA !!! Z powodów technicznych cały kod i pliki są w ZIPie, modele są zbyt duże dla Githuba... zostanie to potem naprawione bez wrzucania modeli na Gita, program ma możliwość stworzenia ich.
-
 # Projekt na zaliczenie przedmiotu Computer vision
 
 
@@ -23,6 +21,15 @@ musimy wskazać co to za znak, ale również miejsce, w którym się on znajduje
 Najnowsze technologie oraz rozwój sztucznej inteligencji pozwalają na wykrywanie i rozpoznawanie klas obiektów. Zaprojektowany program ma na celu znajdowanie znaków drogowych na podanych zdjęciach, zaznaczenie ich oraz wypisywanie ich oznaczenia zgodnie z zapisem w przepisach ruchu drogowego. Program do szkolenia sieci  wykorzystuje dataset z Kaggle’a ["polish traffic signs dataset"](https://www.kaggle.com/datasets/kasia12345/polish-traffic-signs-dataset
 ) autorstwa Kasia12345. Zawiera on 92 klasy Polskich znaków drogowych podzielonych na część treningową i testową. Do klasyfikacji znaków można wybrać jeden z trzech modeli sieci: TSNet zrobiony na wzór VGG16 oraz wstępnie trenowanych SqueezeNet 1.1 lub ResNet-18. Do wykrywania znaków jest wykorzystywana cascada z githuba [„Traffic-Sign-Localization-and-Recognition”](https://github.com/zahid58/Traffic-Sign-Localization-and-Recognition/blob/master/cascade.xml) autorstwa zahid58. Zostały też wykorzystane liczne zdjęcia ze znakami drogowymi znalezione w internecie.
 
+## Wykresy
+Wykresy zrobione w Tensorboard, epoch = 5, CPU, komenda w terminalu: python -m tensorboard.main --logdir=.\lightning_logs\model
+
+![](wykresy/train_accuracy.png)
+
+![](wykresy/train_loss_epoch.png)
+
+![](wykresy/train_precision.png)
+
 ## Język kodu:
 Python 3.11
 
@@ -42,11 +49,15 @@ Python 3.11
 * foldery zdjec archive8 (dataset z Kaggle) oraz test-images
 
 ## Uruchomienie:
-Po ściągnięciu kodu, modułów oraz pliku ze zdjęciami i załadowaniu powyższych bibliotek , wystarczy
+Po ściągnięciu kodu, modułów oraz pliku ze zdjęciami i załadowaniu powyższych bibliotek, wystarczy
 uruchomić kod w środowisku python. Kod będzie zatrzymywał się na kolejnych
 zdjęciach i wznawiał działanie po zamknięciu zdjęcia. Każde zdjęcie z zaznaczonymi znakami będzie 
 zapisane na dysku, z którego został uruchomiony kod i zdjęcie. Program jest interaktywny i możliwe
 jest wybranie opcji w terminalu w danych krokach np. wyjście z programu czy wybór modelu sieci.
+By wyświetlić wykresy, należy w terminalu użyć komendy "python -m tensorboard.main --logdir=.\lightning_logs\model".
+
+### UWAGA !!! Github nie pozwolił na wysłanie plików modeli, przy pierwszym uruchomieniu programu należy więc je utworzyć poprzez interakcje. Ponieważ ograniczenia spowodowały, że program jest na CPU, a nie na GPU, należy mieć na uwadze, że epoch'y mogą trwać trochę czasu (TSNet na jedną potrzebuje 20-30 minut...). Na obecny moment to jedyne rozwiązanie, może uda mi się wrzucić przetrenowane modele na Github'a.
+
 
 ## Źródła i inspiracje : 
 * materiały z przedmiotów : NAJ, IML, FDL, COV

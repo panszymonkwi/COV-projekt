@@ -1,0 +1,93 @@
+ClassId,SignName
+0,A-1  niebezpieczny zakret w prawo
+1,A-11  nierowna droga
+2,A-11a  prog zwalniajacy
+3,A-12a  zwezenie jezdni
+4,A-14  roboty na drodze
+5,A-15  sliska jezdnia
+6,A-16  przejscie dla pieszych
+7,A-17  dzieci
+8,A-18b  zwierzeta dzikie
+9,A-2  niebezpieczny zakret w lewo
+10,A-20  odcinek jezdni o ruchu dwukierunkowym
+11,A-21  tramwaj
+12,A-24  rowerzysci
+13,A-29  sygnaly swietlne
+14,A-3  niebezpieczne zakrety - pierwszy w prawo
+15,A-30  inne niebezpieczenstwo
+16,A-32  oszronienie jezdni
+17,A-4  niebezpieczne zakrety - pierwszy w lewo
+18,A-6a  skrzyzowanie z podporzadkowana – obie strony
+19,A-6b  skrzyzowanie z podporzadkowana – prawa
+20,A-6c  skrzyzowanie z podporzadkowana – lewa
+21,A-6d  wylot z podporzadkowana – prawa
+22,A-6e  wylot z podporzadkowana – lewa
+23,A-7 ustap pierwszenstwa
+24,A-8  skrzyzowanie o ruchu okreznym
+25,B-1  zakaz ruchu w obu kierunkach
+26,B-18  zakaz pojazdow o masie ponad wskazanej wagi
+27,B-2  zakaz wjazdu
+28,B-20  stop
+29,B-21  zakaz skrecania w lewo
+30,B-22  zakaz skrecania w prawo
+31,B-25  zakaz wyprzedzania
+32,B-26  zakaz wyprzedzania przez samochody ciezarowe
+33,B-27  koniec zakazu wyprzedzania
+34,B-33  ograniczenie do wskazanej predkosci
+35,B-34  koniec ograniczenia predkosci
+36,B-36  zakaz zatrzymywania
+37,B-41  zakaz ruchu pieszych
+38,B-42  koniec wszelkich zakazow
+39,B-43  strefa ograniczonej predkosci
+40,B-44  koniec strefy ograniczonej predkosci
+41,B-5  zakaz wjazdu samochodow ciezarowych
+42,B-6-B-8-B-9  zakaz wjazdu pojazdow innych
+43,B-8  zakaz wjazdu pojazdow zaprzegowych
+44,B-9  zakaz wjazdu rowerow
+45,C-10  nakaz jazdy z lewej strony znaku
+46,C-12  ruch okrezny
+47,C-13  droga dla rowerow
+48,C-13a  koniec drogi dla rowerow
+49,C-13a16a  koniec drogi dla pieszych i rowerow
+50,C-13i16  droga dla pieszych i rowerow
+51,C-16  droga dla pieszych
+52,C-2  nakaz jazdy w prawo za znakiem
+53,C-4  nakaz jazdy w lewo za znakiem
+54,C-5  nakaz jazdy prosto
+55,C-6  nakaz jazdy prosto lub w prawo
+56,C-7  nakaz jazdy prosto lub w lewo
+57,C-9  nakaz jazdy z prawej strony znaku
+58,D-1  droga z pierwszenstwem
+59,D-14  koniec pasa ruchu
+60,D-15  przystanek autobusowy
+61,D-18  parking
+62,D-18b  parking zadaszony
+63,D-2  koniec drogi z pierwszenstwem
+64,D-21  szpital
+65,D-23  stacja paliwowa
+66,D-23a  stacja paliwowa tylko z gazem do napedu
+67,D-24  telefon
+68,D-26  stacja obslugi technicznej
+69,D-26b  myjnia
+70,D-26c  toaleta publiczna
+71,D-27  bufet lub kawiarnia
+72,D-28  restauracja
+73,D-29  hotel (motel)
+74,D-3  droga jednokierunkowa
+75,D-40  strefa zamieszkania
+76,D-41  koniec strefy zamieszkania
+77,D-42  obszar zabudowany
+78,D-43  koniec obszaru zabudowanego
+79,D-4a  droga bez przejazdu
+80,D-4b  wjazd na droge bez przejazdu
+81,D-51  fotoradar
+82,D-52  strefa ruchu
+83,D-53  koniec strefy ruchu
+84,D-6   przejscie dla pieszych
+85,D-6b  przejscie dla pieszych i rowerzystow
+86,D-7  droga ekspresowa
+87,D-8  koniec drogi ekspresowej
+88,D-9  autostrada
+89,D-tablica
+90,G-1a  slupek wskaznikowy z trzema kreskami
+91,G-3  krzyz sw. Andrzeja przed przejazdem kolejowym

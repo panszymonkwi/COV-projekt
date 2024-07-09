@@ -42,9 +42,10 @@ from torchvision.datasets import ImageFolder
 print("      - import PIL")
 import PIL
 
-
 print(" 2. Wybor modelu sieci do klasyfikacji znakow drogowych")
-print("    2.1 nowo utworzony model sieci konwolucyjnej ModelTSNet (okrojona siec VGG16)")
+print(
+    "    2.1 nowo utworzony model sieci konwolucyjnej ModelTSNet (okrojona siec VGG16)"
+)
 print("    2.2 model wstepnie wytrenowany models.resnet18(pretrained=True)")
 print("    2.3 model wstepnie wytrenowany models.squeezenet1_1(pretrained=True)")
 print(" 3. Przygotowanie zbioru danych uczących model")
@@ -77,10 +78,14 @@ if not kontynuacja():
     os._exit(0)
 
 
-print("\n******** W Y B O R  M O D E L U  S I E C I  D O  K L A S Y F I K A C J I  Z N A K O W  ********\n")
+print(
+    "\n******** W Y B O R  M O D E L U  S I E C I  D O  K L A S Y F I K A C J I  Z N A K O W  ********\n"
+)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Pracuje na {device}")  # przejście 1 epoki na CPU zajmuje około 2600 sekund, na GPU 66 sekund
+print(
+    f"Pracuje na {device}"
+)  # przejście 1 epoki na CPU zajmuje około 2600 sekund, na GPU 66 sekund
 print("\nDOSTEPNE MODELE SIECI:")
 print("   1. ModelTSN zdefiniowany od podstaw (okrojone VGG16)")
 print("   2. ModelRS na bazie ResNet-18 (pretrained)")
@@ -91,6 +96,7 @@ while wybor != "1" and wybor != "2" and wybor != "3":
     wybor = input("\nWybierz model (1,2,3): ")
 if wybor == "1":
     from ModelTSN import *
+
     modelTSN = ModelTSNet()
     torch.save(modelTSN, "modelTSN.h5")
     wybrany_model = modelTSN
@@ -98,6 +104,7 @@ if wybor == "1":
 
 elif wybor == "2":
     from ModelRS import *
+
     modelR18 = ModelRS()
     torch.save(modelR18, "modelRS.h5")
     wybrany_model = modelR18
@@ -105,16 +112,24 @@ elif wybor == "2":
 
 else:
     from ModelSN import *
+
     modelSN = ModelSN()
     torch.save(modelSN, "modelSN.h5")
     wybrany_model = modelSN
     print(wybrany_model.backbone)
 
-wybrany_model = wybrany_model.to(device)  # model przenosiony na aktualnie dostępne urządzenie
+wybrany_model = wybrany_model.to(
+    device
+)  # model przenosiony na aktualnie dostępne urządzenie
 
-print("\n********* P R Z Y G O T O W A N I E  D A N Y C H  U C Z A C Y C H **********\n")
+print(
+    "\n********* P R Z Y G O T O W A N I E  D A N Y C H  U C Z A C Y C H **********\n"
+)
 
-#!unzip archive8.zip
+if not os.path.isdir(r'./archive8/'):
+    print("BRAK FOLDERU Z DATASET'EM, URUCHOM NAJPIERW 'kaggledownload.py'\n")
+    print("KONCZENIE PROGRAMU")
+    os._exit(0)
 
 # Load Traffic Sign data
 train_dataset = ImageFolder(root="archive8/train/")
@@ -149,10 +164,13 @@ class TrafficSignData(pl.LightningDataModule):
     def val_dataloader(self):
         return DataLoader(self.test_dataset, batch_size=self.batch_size, shuffle=False)
 
+
 daneTS = TrafficSignData()
 daneTS.setup()
 
-print("\n***** W C Z Y T A N I E  U T W O R Z O N E J  T A B E L I  N A Z W  Z N A K O W *****\n")
+print(
+    "\n***** W C Z Y T A N I E  U T W O R Z O N E J  T A B E L I  N A Z W  Z N A K O W *****\n"
+)
 
 num = int(input("Ile nazw znakow wyswietlic? (0-92): "))
 if num > 92:
@@ -179,7 +197,9 @@ for i in range(3):
     plt.imshow(image)
     plt.show()
 
-print("\n***** T R E N I N G  M O D E L U  S I E C I  N A  Z B I O R Z E  D A N Y C H  *****\n")
+print(
+    "\n***** T R E N I N G  M O D E L U  S I E C I  N A  Z B I O R Z E  D A N Y C H  *****\n"
+)
 # Trening modelu sieci konwolucyjnej na zbiorze danych
 
 logger = TensorBoardLogger("lightning_logs", name="model")
@@ -211,12 +231,14 @@ else:
 #%load_ext tensorboard
 # tensorboard --logdir "lighting_logs/"
 
-print("\n********* F U N K C J A  W I Z U A L I Z A C J I  T R A N S F O R M A C J I **********\n")
+print(
+    "\n********* F U N K C J A  W I Z U A L I Z A C J I  T R A N S F O R M A C J I **********\n"
+)
 # definicja transformacji
 
 transform = transforms.Compose(
     [
-        #transforms.Resize(256),
+        # transforms.Resize(256),
         transforms.CenterCrop(224),
         transforms.ToTensor(),
         transforms.Normalize((0), (1)),
@@ -280,16 +302,24 @@ def visualize_detect(path, namefile):
         except AttributeError:
             print("shape not found")
         # detection
-        #cv2.ocl.setUseOpenCL(False)
+        # cv2.ocl.setUseOpenCL(False)
         img_out = cv2.imread(path + namefile)
         img_out = cv2.cvtColor(img_out, cv2.COLOR_BGR2RGB)
-        boxes = cascade.detectMultiScale(img_out,scaleFactor=1.01,minNeighbors=7,minSize=(24, 24),maxSize=(224, 224))
+        boxes = cascade.detectMultiScale(
+            img_out,
+            scaleFactor=1.01,
+            minNeighbors=7,
+            minSize=(24, 24),
+            maxSize=(224, 224),
+        )
         print("Liczba wykrytych znaków: ", len(boxes))
         if len(boxes) > 0:
             # recognition and drawing boundary boxes on input image
             for (x, y, w, h) in boxes:
                 print("\nbox: ", x, y, w, h)
-                img_rect = cv2.rectangle(img_out, (x, y), (x + w, y + h), (255, 255, 0), 2)
+                img_rect = cv2.rectangle(
+                    img_out, (x, y), (x + w, y + h), (255, 255, 0), 2
+                )
 
                 cropped_image = arr_image[y : y + h, x : x + w, :]
                 cropped_image = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB)
@@ -334,7 +364,7 @@ def visualize_detect(path, namefile):
         plt.title("Zlokalizowane znaki")
         plt.show()
         img_out = cv2.cvtColor(img_out, cv2.COLOR_BGR2RGB)
-        cv2.imwrite("test-images/Output/"+ wybor + "-" + namefile, img_out)
+        cv2.imwrite("test-images/Output/" + wybor + "-" + namefile, img_out)
 
 
 print(
@@ -354,8 +384,8 @@ print(
 if kontynuacja():
 
     # wizualizacja detekcji całego folderu Input
-    path = "test-images/" #""
-    subpath =  "Input/" #"widoki/"
+    path = "test-images/"  # ""
+    subpath = "Input/"  # "widoki/"
     print("Liczba obrazów:", len(os.listdir(path + subpath)))
     i = 0
     for image in sorted(os.listdir(path + subpath)):
@@ -365,9 +395,7 @@ if kontynuacja():
         visualize_detect(path + subpath, image)
 
 
-print(
-    "\n*********  D E M O   Z A P I S A N Y C H   E F E K T O W  **********\n"
-)
+print("\n*********  D E M O   Z A P I S A N Y C H   E F E K T O W  **********\n")
 # przegląd zapisanych efektów detekcji
 
 if kontynuacja():

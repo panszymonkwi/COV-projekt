@@ -49,8 +49,7 @@ Python 3.11
 * foldery zdjec archive8 (dataset z Kaggle) oraz test-images
 
 ## Uruchomienie:
-Po ściągnięciu kodu, modułów oraz pliku ze zdjęciami i załadowaniu powyższych bibliotek, wystarczy
-uruchomić kod w środowisku python. Kod będzie zatrzymywał się na kolejnych
+Po ściągnięciu kodu, modułów oraz pliku ze zdjęciami i załadowaniu powyższych bibliotek, należy najpierw uruchomić "kaggledownload.py" w środowisku python, po czym można uruchomić "projektCOV.py". Pierwszy skrypt pobiera dataset z Kaggle'a i wrzuca go do odpowiedniego folderu, potrzebny jest tylko jeśli projekt był pobierany po raz pierwszy. Główny kod po uruchomieniu będzie zatrzymywał się na kolejnych
 zdjęciach i wznawiał działanie po zamknięciu zdjęcia. Każde zdjęcie z zaznaczonymi znakami będzie 
 zapisane na dysku, z którego został uruchomiony kod i zdjęcie. Program jest interaktywny i możliwe
 jest wybranie opcji w terminalu w danych krokach np. wyjście z programu czy wybór modelu sieci.
